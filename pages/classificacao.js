@@ -5,7 +5,9 @@ import Footer from '../components/Footer';
 const ClassificationTable = ({ title, data, type }) => {
     const teamColorMap = {
         'Red Bull': 'bg-[#3671C6]', 'Ferrari': 'bg-[#F91536]', 'McLaren': 'bg-[#F58020]',
-        'Mercedes': 'bg-[#6CD3BF]', 'Aston Martin': 'bg-[#358C75]', 'default': 'bg-gray-400'
+        'Mercedes': 'bg-[#6CD3BF]', 'Aston Martin': 'bg-[#358C75]', 'Alpine': 'bg-[#2293D1]',
+        'Williams': 'bg-[#37BEDD]', 'Haas F1 Team': 'bg-[#B6BABD]', 'Sauber': 'bg-[#52E252]',
+        'RB F1 Team': 'bg-[#6692FF]', 'default': 'bg-gray-400'
     };
     return (
         <section>
@@ -14,24 +16,24 @@ const ClassificationTable = ({ title, data, type }) => {
                 <table className="w-full">
                     <thead className="bg-gray-100">
                         <tr>
-                            <th className="p-3 text-left w-1/12">Pos</th>
-                            <th className="p-3 text-left w-7/12">{type === 'driver' ? 'Piloto' : 'Equipe'}</th>
-                            <th className="p-3 text-center w-2/12">Vit.</th>
-                            <th className="p-3 text-right w-2/12">Pts</th>
+                            <th className="p-3 text-left font-bold text-gray-600 w-1/12">Pos</th>
+                            <th className="p-3 text-left font-bold text-gray-600 w-7/12">{type === 'driver' ? 'Piloto' : 'Equipa'}</th>
+                            <th className="p-3 text-center font-bold text-gray-600 w-2/12">Vit.</th>
+                            <th className="p-3 text-right font-bold text-gray-600 w-2/12">Pts</th>
                         </tr>
                     </thead>
                     <tbody>
                         {data.map(item => (
-                            <tr key={item.pos} className="border-b border-gray-200">
+                            <tr key={item.pos} className="border-b border-gray-200 last:border-b-0 hover:bg-gray-50">
                                 <td className="p-3 font-bold">{item.pos}</td>
                                 <td className="p-3">
                                     <div className="flex items-center">
-                                        <span className={`w-1 h-6 ${teamColorMap[item.team] || teamColorMap.default} mr-3`}></span>
+                                        <span className={`w-1 h-6 ${teamColorMap[item.team] || teamColorMap.default} mr-3 rounded-full`}></span>
                                         <span>{item.name}</span>
                                     </div>
                                 </td>
                                 <td className="p-3 text-center">{item.wins}</td>
-                                <td className="p-3 text-right font-bold">{item.points}</td>
+                                <td className="p-3 text-right font-bold text-[#15151e]">{item.points}</td>
                             </tr>
                         ))}
                     </tbody>
