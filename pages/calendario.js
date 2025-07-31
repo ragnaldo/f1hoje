@@ -75,8 +75,8 @@ export default function CalendarPage({ featuredRaces, allRaces, pageContent }) {
 
 export async function getStaticProps() {
   const CURRENT_YEAR = new Date().getFullYear();
-  const F1_CALENDAR_API = `https://ergast.com/api/f1/${CURRENT_YEAR}.json`;
-  const F1_RESULTS_API = `https://ergast.com/api/f1/${CURRENT_YEAR}/results/1.json`;
+  const F1_CALENDAR_API = `https://api.jolpi.ca/ergast/f1/${CURRENT_YEAR}.json`;
+  const F1_RESULTS_API = `https://api.jolpi.ca/ergast/f1/${CURRENT_YEAR}/results/1.json`;
 
   try {
     const [calendarRes, resultsRes] = await Promise.all([
