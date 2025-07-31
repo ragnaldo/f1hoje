@@ -10,6 +10,7 @@ const TeamCard = ({ team }) => (
     <div className="grid grid-cols-2 gap-px bg-gray-200">
       {team.drivers.map(driver => (
         <div key={driver.number} className="bg-white p-4 text-center">
+          <img src={`https://placehold.co/200x200/cccccc/000000?text=${driver.code}`} alt={driver.name} className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-gray-200" />
           <p className="font-bold text-lg">{driver.name}</p>
           <p className={`font-black text-3xl ${team.textColor}`}>{driver.number}</p>
         </div>
@@ -43,6 +44,12 @@ export async function getStaticProps() {
       'mercedes': { border: 'border-[#6CD3BF]', text: 'text-[#6CD3BF]' },
       'mclaren': { border: 'border-[#F58020]', text: 'text-[#F58020]' },
       'red_bull': { border: 'border-[#3671C6]', text: 'text-[#3671C6]' },
+      'alpine': { border: 'border-[#2293D1]', text: 'text-[#2293D1]' },
+      'williams': { border: 'border-[#37BEDD]', text: 'text-[#37BEDD]' },
+      'haas': { border: 'border-[#B6BABD]', text: 'text-[#B6BABD]' },
+      'sauber': { border: 'border-[#52E252]', text: 'text-[#52E252]' },
+      'rb': { border: 'border-[#6692FF]', text: 'text-[#6692FF]' },
+      'aston_martin': { border: 'border-[#358C75]', text: 'text-[#358C75]' },
       'default': { border: 'border-gray-400', text: 'text-gray-600' }
   };
 
@@ -65,6 +72,7 @@ export async function getStaticProps() {
       teamsMap.get(teamId).drivers.push({
         name: `${driverInfo.Driver.givenName} ${driverInfo.Driver.familyName}`,
         number: driverInfo.Driver.permanentNumber || driverInfo.Driver.code,
+        code: driverInfo.Driver.code,
       });
     });
 
@@ -72,7 +80,7 @@ export async function getStaticProps() {
       props: {
         teams: Array.from(teamsMap.values()),
         pageContent: {
-          title: `Equipes e Pilotos ${new Date().getFullYear()}`,
+          title: `Equipas e Pilotos ${new Date().getFullYear()}`,
           subtitle: "Conheça o grid completo da temporada.",
         },
       },
