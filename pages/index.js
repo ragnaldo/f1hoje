@@ -92,7 +92,3 @@ export async function getStaticProps() {
     return { props: { proximoEvento: null, ultimasNoticias: [] } };
   }
 }
-
-    return { props: { proximoEvento: null, ultimasNoticias: [] } };
-  }
-}
