@@ -53,7 +53,7 @@ export default function HomePage({ proximoEvento, ultimasNoticias }) {
 }
 
 export async function getStaticProps() {
-  const F1_API_URL = "https://ergast.com/api/f1/current/next.json";
+  const F1_API_URL = "https://api.jolpi.ca/ergast/f1/current/next.json";
   const WORDPRESS_API_URL = "https://admin.f1hoje.com/wp-json/wp/v2/posts?per_page=3&_embed";
 
   try {
